@@ -17,6 +17,11 @@ pipeline {
                 checkout scm // Checkout the code
             }
         }
+        stage("Take approval"){
+            steps {
+                input 'Should we deploy?'
+            }
+        }
         stage ('Build') {
             agent {
                 docker {
