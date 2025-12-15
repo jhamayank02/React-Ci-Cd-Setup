@@ -1,7 +1,7 @@
 pipeline {
     agent any
     options {
-        skipDefaultCheckout(true)
+        skipDefaultCheckout(true) // Skip the default checkout
     }
     stages {
         stage ('clean up code'){
@@ -11,7 +11,7 @@ pipeline {
         }
         stage ('checkout using SCM'){
             steps {
-                checkout scm
+                checkout scm // Checkout the code
             }
         }
         stage ('Build') {
