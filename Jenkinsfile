@@ -11,10 +11,10 @@ pipeline {
             }
 
             steps {
-                step('clean up workspace') {
+                step {
                     cleanWs()
                 }
-                step('build project') {
+                step {
                 sh '''
                     ls -l
                     node --version
