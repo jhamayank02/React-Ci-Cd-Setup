@@ -19,7 +19,9 @@ pipeline {
         }
         stage("Take approval"){
             steps {
-                input 'Should we deploy?'
+                timeout(time: 1, unit: 'MINUTES'){
+                    input message: 'Do you want to proceed?', ok: 'Proceed'
+                }
             }
         }
         stage ('Build') {
