@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage ('Build') {
             agent {
-                any {
-                    image 'node:18-alpine'
+                docker {
+                    image 'node:22.11.0-alpine3.20'
                     reuseNode true // Reuse the node for the next stages
                 }
             }
