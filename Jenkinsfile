@@ -34,5 +34,21 @@ pipeline {
                     '''
             }
         }
+        stage ('Deploy'){
+            agent {
+                docker {
+                    er {
+                    image 'node:22.11.0-alpine3.20'
+                    args '-u root'
+                    reuseNode true // Reuse the node for the next stages
+                }
+            }
+
+            steps {
+                sh '''
+                    npm install -g vercel
+                '''
+            }
+        }
     }
 }
